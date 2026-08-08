@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Feliz Cumpleaños, Papá ❤️</title>
+<title>Feliz Cumpleaños, Mamá ❤️</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Mulish:wght@400;500;600;700;800&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
@@ -12,19 +12,19 @@
      ✏️  PERSONALIZACIÓN VISUAL DE COLORES (opcional)
      ========================================================= */
   :root{
-    --navy-deep:  #0a1220;
-    --navy:       #101c30;
-    --navy-mid:   #16283f;
-    --navy-light: #223a56;
+    --bg-deep:    #241018;
+    --bg:         #341b28;
+    --bg-mid:     #452539;
+    --bg-light:   #5a3149;
     --gold:       #d8ae66;
-    --gold-soft:  #f0d9a3;
-    --gold-dim:   #a9843f;
-    --cream:      #f8efdf;
-    --ember:      #f0954f;
-    --ember-deep: #d95f2b;
-    --burgundy:   #8a3448;
-    --burgundy-d: #5c2233;
-    --rose:       #e6a8a0;
+    --gold-soft:  #f3dcae;
+    --gold-dim:   #b3924f;
+    --cream:      #faf1e6;
+    --rose:       #d98aa0;
+    --rose-soft:  #f0bfcd;
+    --rose-deep:  #a1526a;
+    --plum:       #6b2f4b;
+    --plum-deep:  #4a1d34;
     --shadow-deep: rgba(0,0,0,.45);
   }
 
@@ -32,7 +32,7 @@
 
   html,body{
     height:100%;
-    background:var(--navy-deep);
+    background:var(--bg-deep);
     overflow:hidden;
     font-family:'Mulish', sans-serif;
     color:var(--cream);
@@ -52,11 +52,11 @@
     *{ animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.2s !important; }
   }
 
-  /* ---------- fondo estrellado, persistente ---------- */
+  /* ---------- fondo, persistente ---------- */
   #stars-bg{
     position:fixed; inset:0; z-index:0;
     background:
-      radial-gradient(ellipse 120% 70% at 50% -10%, var(--navy-mid) 0%, var(--navy) 45%, var(--navy-deep) 100%);
+      radial-gradient(ellipse 120% 70% at 50% -10%, var(--bg-mid) 0%, var(--bg) 45%, var(--bg-deep) 100%);
     overflow:hidden;
   }
   .star{
@@ -70,19 +70,19 @@
     0%,100%{ opacity:.1; transform:scale(1); }
     50%{ opacity:.9; transform:scale(1.4); }
   }
-  .drift{
+  .petal{
     position:absolute;
-    border-radius:50%;
-    filter:blur(1px);
-    background:radial-gradient(circle, var(--gold) 0%, transparent 70%);
-    opacity:.25;
-    animation:driftUp linear infinite;
+    border-radius:60% 0% 60% 0%;
+    background:radial-gradient(circle at 30% 30%, var(--rose-soft) 0%, var(--rose) 60%, transparent 100%);
+    opacity:.3;
+    filter:blur(.3px);
+    animation:driftDown linear infinite;
   }
-  @keyframes driftUp{
-    from{ transform:translateY(0) translateX(0); opacity:0; }
-    10%{ opacity:.35; }
-    90%{ opacity:.2; }
-    to{ transform:translateY(-110vh) translateX(20px); opacity:0; }
+  @keyframes driftDown{
+    from{ transform:translateY(-10vh) translateX(0) rotate(0deg); opacity:0; }
+    10%{ opacity:.4; }
+    90%{ opacity:.25; }
+    to{ transform:translateY(110vh) translateX(24px) rotate(200deg); opacity:0; }
   }
 
   /* ---------- estructura de escenas ---------- */
@@ -139,10 +139,10 @@
     color:var(--gold-dim);
     margin-bottom:2px;
   }
-  #nombre-papa{
+  #nombre-mama{
     font-family:'Mrs Saint Delafield', cursive;
     font-size:clamp(2.6rem, 13vw, 3.6rem);
-    color:var(--gold-soft);
+    color:var(--rose-soft);
     line-height:1;
     text-shadow:0 4px 30px rgba(216,174,102,.35);
   }
@@ -152,7 +152,7 @@
     font-weight:700;
     font-size:1rem;
     letter-spacing:.03em;
-    color:var(--navy-deep);
+    color:var(--plum-deep);
     background:linear-gradient(135deg, var(--gold-soft), var(--gold));
     border:none;
     padding:16px 34px;
@@ -218,14 +218,14 @@
   .gift-base{
     position:absolute; left:0; right:0; bottom:0;
     height:96px;
-    background:linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-d) 100%);
+    background:linear-gradient(135deg, var(--rose-deep) 0%, var(--plum) 100%);
     border-radius:8px;
     box-shadow:0 18px 40px var(--shadow-deep);
   }
   .gift-lid{
     position:absolute; left:-8px; right:-8px; bottom:78px;
     height:34px;
-    background:linear-gradient(135deg, var(--burgundy-d) 0%, var(--burgundy) 100%);
+    background:linear-gradient(135deg, var(--plum) 0%, var(--rose-deep) 100%);
     border-radius:8px 8px 4px 4px;
     box-shadow:0 8px 16px rgba(0,0,0,.35);
     transition:transform .8s cubic-bezier(.2,.9,.3,1.4), opacity .7s ease;
@@ -282,7 +282,7 @@
     font-family:'Mulish', sans-serif;
     font-weight:700;
     font-size:.95rem;
-    color:var(--navy-deep);
+    color:var(--plum-deep);
     background:linear-gradient(135deg, var(--gold-soft), var(--gold));
     border:none;
     padding:14px 30px;
@@ -298,7 +298,7 @@
   .scene3-text{
     font-size:clamp(1.2rem, 5.8vw, 1.6rem);
     font-weight:700;
-    color:var(--gold-soft);
+    color:var(--rose-soft);
     margin-bottom:6vh;
     text-shadow:0 2px 20px rgba(216,174,102,.3);
   }
@@ -324,12 +324,12 @@
   }
   .tier-bottom{
     width:190px; height:64px;
-    background:linear-gradient(180deg, var(--burgundy) 0%, var(--burgundy-d) 100%);
+    background:linear-gradient(180deg, var(--rose-deep) 0%, var(--plum) 100%);
   }
   .tier-top{
     width:130px; height:52px;
     margin:0 auto -4px;
-    background:linear-gradient(180deg, #a24763 0%, var(--burgundy) 100%);
+    background:linear-gradient(180deg, var(--rose) 0%, var(--rose-deep) 100%);
     border-radius:10px 10px 0 0;
   }
   .frosting{
@@ -358,7 +358,7 @@
     position:absolute; top:-30px; left:50%;
     width:16px; height:22px;
     transform:translateX(-50%);
-    background:radial-gradient(circle at 50% 70%, #fff6d8 0%, var(--ember) 45%, var(--ember-deep) 80%, transparent 100%);
+    background:radial-gradient(circle at 50% 70%, #fff6d8 0%, #f0954f 45%, #d95f2b 80%, transparent 100%);
     border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
     filter:blur(.2px);
     box-shadow:0 0 18px 6px rgba(240,149,79,.55), 0 0 40px 14px rgba(240,149,79,.25);
@@ -394,7 +394,7 @@
   .smoke{
     position:absolute; top:-34px; left:50%;
     width:6px; height:6px;
-    background:rgba(220,220,220,.55);
+    background:rgba(230,220,224,.55);
     border-radius:50%;
     filter:blur(2px);
     transform:translateX(-50%);
@@ -424,7 +424,7 @@
   .final-title{
     font-size:clamp(1.7rem, 8.5vw, 2.5rem);
     font-weight:800;
-    color:var(--gold-soft);
+    color:var(--rose-soft);
     text-shadow:0 4px 30px rgba(216,174,102,.4);
     opacity:0;
     transform:translateY(16px);
@@ -477,7 +477,7 @@
     100%{ opacity:0; transform:translateY(-100vh) translateX(var(--hx,0px)) scale(1.1) rotate(var(--hr,20deg)); }
   }
 
-  /* ---------- confetti (compartido) ---------- */
+  /* ---------- confeti (compartido) ---------- */
   .confetti-piece{
     position:fixed; top:-20px;
     width:8px; height:14px;
@@ -491,19 +491,82 @@
     100%{ transform:translateY(115vh) rotate(540deg); opacity:.2; }
   }
 
-  /* ---------- footer sutil ---------- */
-  .tap-hint{
-    position:absolute; bottom:5vh; left:0; right:0;
-    text-align:center;
-    font-size:.72rem;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-    color:var(--gold-dim);
-    opacity:.7;
-  }
-
   @media (min-width:640px){
     .scene{ padding-top:6vh; }
+  }
+
+  .tap-hint{
+    margin-top:5vh;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-dim);
+    opacity:.75;
+    animation:fadeUp 1s ease 1.4s both;
+  }
+
+  /* ---------- indicador de progreso (4 puntos) ---------- */
+  #progress-dots{
+    position:fixed;
+    top:calc(env(safe-area-inset-top, 0px) + 18px);
+    left:0; right:0;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    z-index:20;
+    pointer-events:none;
+  }
+  #progress-dots .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:rgba(248,239,230,.28);
+    transition:background .5s ease, transform .5s ease, width .5s ease;
+  }
+  #progress-dots .dot.on{
+    background:var(--gold);
+    width:18px;
+    border-radius:4px;
+  }
+
+  /* ---------- flourish floral junto al nombre ---------- */
+  .name-frame{ display:flex; flex-direction:column; align-items:center; }
+  .flourish-row{
+    display:flex; align-items:center; gap:10px;
+    margin-top:6px;
+  }
+  .flourish-row svg{ width:38px; height:14px; opacity:.75; }
+  .flourish-row svg .fl-line{ stroke:var(--gold-dim); stroke-width:1.4; fill:none; }
+  .flourish-row svg .fl-dot{ fill:var(--rose-soft); }
+
+  /* ---------- marco de foto (escena final) ---------- */
+  .photo-frame{
+    width:132px; height:132px;
+    border-radius:50%;
+    margin:0 auto 22px;
+    position:relative;
+    padding:5px;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+    opacity:0;
+    transform:translateY(16px) scale(.92);
+    animation:fadeUp .9s ease .35s forwards;
+  }
+  .photo-frame-inner{
+    width:100%; height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    background:var(--bg-mid);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .photo-frame-inner img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-fallback{
+    font-family:'Mrs Saint Delafield', cursive;
+    font-size:2.4rem;
+    color:var(--rose-soft);
   }
 </style>
 </head>
@@ -511,14 +574,25 @@
 
 <div id="stars-bg"></div>
 
+<div id="progress-dots">
+  <span class="dot on" data-dot="1"></span>
+  <span class="dot" data-dot="2"></span>
+  <span class="dot" data-dot="3"></span>
+  <span class="dot" data-dot="4"></span>
+</div>
+
 <!-- ============ ESCENA 1 — BIENVENIDA ============ -->
 <section class="scene active" id="scene1">
   <div class="eyebrow">Un regalo hecho con cariño</div>
-  <h1 class="headline-1 display">Para el mejor papá del mundo ❤️</h1>
+  <h1 class="headline-1 display">Para la mejor mamá del mundo ❤️</h1>
   <div class="name-frame">
     <div class="label">con todo mi cariño para</div>
-    <!-- ✏️ El nombre de papá se inserta aquí automáticamente desde el JS (variable NOMBRE_PAPA) -->
-    <div id="nombre-papa">Papá</div>
+    <!-- ✏️ El nombre de mamá se inserta aquí automáticamente desde el JS (variable NOMBRE_MAMA) -->
+    <div id="nombre-mama">Mamá</div>
+    <div class="flourish-row" aria-hidden="true">
+      <svg viewBox="0 0 38 14"><path class="fl-line" d="M0 7 H14"/><circle class="fl-dot" cx="18" cy="7" r="2.4"/></svg>
+      <svg viewBox="0 0 38 14"><circle class="fl-dot" cx="20" cy="7" r="2.4"/><path class="fl-line" d="M24 7 H38"/></svg>
+    </div>
   </div>
   <button class="btn" id="btn-start">Abrir mi regalo 🎁</button>
 </section>
@@ -544,7 +618,7 @@
 <section class="scene" id="scene3">
   <div class="eyebrow">Escena 3</div>
   <p class="scene3-text display">¡Es tu día especial! 🎂</p>
-  <div class="cake-stage" id="cake-stage">
+  <div class="cake-stage" id="cake-stage" title="Toca para soplar la vela">
     <div class="plate"></div>
     <div class="cake">
       <div class="candle">
@@ -567,15 +641,25 @@
       </div>
     </div>
   </div>
+  <p class="tap-hint">Toca la pantalla para soplar la vela</p>
 </section>
 
 <!-- ============ ESCENA 4 — MENSAJE FINAL ============ -->
 <section class="scene" id="scene4">
+  <!-- ✏️ FOTO OPCIONAL: si quieres poner una foto de mamá, sube la imagen junto a este
+       archivo (por ejemplo "mama.jpg") y cambia la línea de abajo a:
+       <img src="mama.jpg" alt="Mamá"> dentro de #photo-frame-inner.
+       Si la dejas como está, se mostrará un corazón decorativo en su lugar. -->
+  <div class="photo-frame">
+    <div class="photo-frame-inner" id="photo-frame-inner">
+      <span class="photo-fallback">❤️</span>
+    </div>
+  </div>
   <h2 class="final-title display">¡FELIZ CUMPLEAÑOS! 🎉🎂</h2>
-  <p class="final-line1 script">Eres lo mejor, papá. ❤️</p>
+  <p class="final-line1 script">Eres la mejor, mamá. ❤️</p>
   <!-- ✏️ El mensaje personalizado se inserta aquí automáticamente desde el JS (variable MENSAJE_PERSONAL) -->
   <p class="final-msg" id="mensaje-personal">Gracias por todo lo que haces por mí.</p>
-  <p class="final-close display">¡Feliz cumpleaños, papá! ❤️</p>
+  <p class="final-close display">¡Feliz cumpleaños, mamá! ❤️</p>
 </section>
 
 <script>
@@ -583,11 +667,11 @@
    ✏️  PERSONALIZA AQUÍ TU REGALO
    Cambia únicamente el texto entre comillas. No toques el resto del código.
    ========================================================================= */
-const NOMBRE_PAPA = "Papá"; // Ej: "Don Roberto" o "Papá José"
-const MENSAJE_PERSONAL = "Gracias por todo lo que haces por mí, por tus consejos, por tu apoyo y por estar siempre ahí. Te quiero muchísimo."; // Escribe aquí tu mensaje
+const NOMBRE_MAMA = "Mamá"; // Ej: "Doña Lupita" o "Mamá Rosa"
+const MENSAJE_PERSONAL = "Gracias por todo lo que haces por mí, por tu amor, por tus cuidados y por estar siempre ahí. Te quiero muchísimo."; // Escribe aquí tu mensaje
 /* ========================================================================= */
 
-document.getElementById('nombre-papa').textContent = NOMBRE_PAPA;
+document.getElementById('nombre-mama').textContent = NOMBRE_MAMA;
 document.getElementById('mensaje-personal').textContent = MENSAJE_PERSONAL;
 
 /* ---------------------- utilidades ---------------------- */
@@ -596,6 +680,9 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 function goToScene(n){
   document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
   document.getElementById('scene' + n).classList.add('active');
+  document.querySelectorAll('#progress-dots .dot').forEach(d => {
+    d.classList.toggle('on', Number(d.dataset.dot) === n);
+  });
   if(n === 2) startGiftScene();
   if(n === 3) startCakeSequence();
   if(n === 4) startFinalScene();
@@ -650,8 +737,8 @@ function playBlowSound(){
   }catch(e){}
 }
 
-/* ---------------------- estrellas de fondo ---------------------- */
-function buildStars(){
+/* ---------------------- fondo: estrellas + pétalos ---------------------- */
+function buildBackground(){
   const bg = document.getElementById('stars-bg');
   const count = window.innerWidth < 500 ? 55 : 90;
   for(let i=0;i<count;i++){
@@ -667,25 +754,25 @@ function buildStars(){
     bg.appendChild(s);
   }
   if(!reducedMotion){
-    const driftCount = window.innerWidth < 500 ? 8 : 14;
-    for(let i=0;i<driftCount;i++){
-      const d = document.createElement('div');
-      d.className = 'drift';
-      const size = Math.random()*10 + 6;
-      d.style.width = size+'px';
-      d.style.height = size+'px';
-      d.style.left = Math.random()*100+'%';
-      d.style.bottom = '-5%';
-      d.style.animationDuration = (Math.random()*10 + 10)+'s';
-      d.style.animationDelay = (Math.random()*10)+'s';
-      bg.appendChild(d);
+    const petalCount = window.innerWidth < 500 ? 8 : 14;
+    for(let i=0;i<petalCount;i++){
+      const p = document.createElement('div');
+      p.className = 'petal';
+      const size = Math.random()*10 + 7;
+      p.style.width = size+'px';
+      p.style.height = size+'px';
+      p.style.left = Math.random()*100+'%';
+      p.style.top = '-5%';
+      p.style.animationDuration = (Math.random()*10 + 11)+'s';
+      p.style.animationDelay = (Math.random()*10)+'s';
+      bg.appendChild(p);
     }
   }
 }
-buildStars();
+buildBackground();
 
 /* ---------------------- confeti reutilizable ---------------------- */
-const CONFETTI_COLORS = ['#d8ae66', '#f0d9a3', '#8a3448', '#e6a8a0', '#f8efdf'];
+const CONFETTI_COLORS = ['#d8ae66', '#f3dcae', '#a1526a', '#d98aa0', '#faf1e6'];
 function launchConfetti(count = 40){
   if(reducedMotion) count = Math.min(count, 12);
   const frag = document.createDocumentFragment();
@@ -744,38 +831,51 @@ function addSparkles(container, count){
   }
 }
 
-function startCakeSequence(){
-  if(cakeSequenceStarted) return;
-  cakeSequenceStarted = true;
+let cakeTimers = [];
+let candleBlown = false;
 
-  const stage = document.getElementById('cake-stage');
-  addSparkles(stage, 10);
+function blowOutCandle(){
+  if(candleBlown) return;
+  candleBlown = true;
+  cakeTimers.forEach(t => clearTimeout(t));
+  cakeTimers = [];
 
   const flame = document.getElementById('flame');
   const smoke1 = document.getElementById('smoke1');
   const smoke2 = document.getElementById('smoke2');
 
-  // ~4s: la llama empieza a agitarse, como si alguien se acercara a soplar
-  setTimeout(() => { flame.classList.add('anticipando'); }, 4000);
-
-  // ~6.5s: la llama se inclina, a punto de apagarse
-  setTimeout(() => {
-    flame.classList.remove('anticipando');
-    flame.classList.add('apagando');
-  }, 6500);
-
-  // 7s: la vela se apaga
-  setTimeout(() => {
+  flame.classList.remove('anticipando');
+  flame.classList.add('apagando');
+  cakeTimers.push(setTimeout(() => {
     flame.classList.remove('apagando');
     flame.classList.add('apagada');
     playBlowSound();
     smoke1.classList.add('rise');
     smoke2.classList.add('rise');
     launchConfetti(20);
-  }, 7000);
+  }, 260));
 
-  // transición a escena final
-  setTimeout(() => { goToScene(4); }, 8600);
+  cakeTimers.push(setTimeout(() => { goToScene(4); }, 1860));
+}
+
+function startCakeSequence(){
+  if(cakeSequenceStarted) return;
+  cakeSequenceStarted = true;
+  candleBlown = false;
+
+  const stage = document.getElementById('cake-stage');
+  addSparkles(stage, 10);
+
+  const flame = document.getElementById('flame');
+
+  // ~4s: la llama empieza a agitarse, como si alguien se acercara a soplar
+  cakeTimers.push(setTimeout(() => { flame.classList.add('anticipando'); }, 4000));
+
+  // 7s: si nadie tocó la pantalla, la vela se apaga sola
+  cakeTimers.push(setTimeout(() => { blowOutCandle(); }, 7000));
+
+  // el usuario también puede tocar la pantalla para soplar la vela él mismo
+  stage.addEventListener('click', blowOutCandle, { once:true });
 }
 
 /* ---------------------- ESCENA 4 — mensaje final ---------------------- */
@@ -783,7 +883,7 @@ let finalStarted = false;
 function spawnHeart(){
   const h = document.createElement('div');
   h.className = 'heart';
-  h.textContent = ['❤️','💛','✨'][Math.floor(Math.random()*3)];
+  h.textContent = ['❤️','🌸','✨'][Math.floor(Math.random()*3)];
   h.style.left = Math.random()*90+'vw';
   h.style.setProperty('--hx', (Math.random()*80-40)+'px');
   h.style.setProperty('--hr', (Math.random()*40-20)+'deg');
